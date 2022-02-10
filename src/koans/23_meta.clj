@@ -43,7 +43,7 @@
   "You can also create a new object from another object with metadata"
   (= {:league "National League" :park "Oracle Park"}
      (meta (vary-meta giants
-                      assoc :park "AT&T Park")))
+                      assoc :park "Oracle Park")))
 
   "But it won't affect behavior like equality"
   (= 'Giants (vary-meta giants dissoc :league))

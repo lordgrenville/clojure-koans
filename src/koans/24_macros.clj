@@ -8,19 +8,19 @@
   (list (second form) (first form) (nth form 2)))
 
 (defmacro infix-concise [form]
-  `(~(second form) ; Note the syntax-quote (`) and unquote (~) characters!
-    __
-    __))
+  `(~(second form)       ; Note the syntax-quote (`) and unquote (~) characters!
+    ~(first form)
+    ~(nth form 2)))
 
 (defmacro recursive-infix [form]
   (cond (not (seq? form))
-        __
+        form
         (= 1 (count form))
         `(recursive-infix ~(first form))
         :else
         (let [operator (second form)
               first-arg (first form)
-              others __]
+              others (rest (rest form))]
           `(~operator
             (recursive-infix ~first-arg)
             (recursive-infix ~others)))))
