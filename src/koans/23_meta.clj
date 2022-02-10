@@ -41,7 +41,7 @@
          @(:world-series-titles (meta giants))))
 
   "You can also create a new object from another object with metadata"
-  (= {:league "National League" :park "AT&T Park"}
+  (= {:league "National League" :park "Oracle Park"}
      (meta (vary-meta giants
                       assoc :park "AT&T Park")))
 
